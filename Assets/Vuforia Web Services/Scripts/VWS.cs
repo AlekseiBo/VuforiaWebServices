@@ -127,8 +127,8 @@ public class VWS : MonoBehaviour
 		query[0] = "POST"; // method
 		query[1] = CalculateMD5Hash(content).ToLower(); // content
 		query[2] = "application/json"; // content type
-		query[3] = DateTime.UtcNow.GetDateTimeFormats()[15]; // date
-		query[4] = "/targets"; // url
+		query[3] = string.Format("{0:r}", DateTime.Now.ToUniversalTime()); // date ex) Mon, 23 Apr 2013 12:45:19 GMT 
+        query[4] = "/targets"; // url
 
 		string stringToSign = string.Join("\n", query);
 
@@ -193,7 +193,7 @@ public class VWS : MonoBehaviour
 		query[0] = "PUT"; // method
 		query[1] = CalculateMD5Hash(content).ToLower(); // content
 		query[2] = "application/json"; // content type
-		query[3] = DateTime.UtcNow.GetDateTimeFormats()[15]; // date
+		query[3] = string.Format("{0:r}", DateTime.Now.ToUniversalTime()); // ex) Mon, 23 Apr 2013 12:45:19 GMT // date
 		query[4] = "/targets/" + targetID; // url
 
 		string stringToSign = string.Join("\n", query);
@@ -212,7 +212,7 @@ public class VWS : MonoBehaviour
 		query[0] = "PUT"; // method
 		query[1] = CalculateMD5Hash(content).ToLower(); // content
 		query[2] = "application/json"; // content type
-		query[3] = DateTime.UtcNow.GetDateTimeFormats()[15]; // date
+		query[3] = string.Format("{0:r}", DateTime.Now.ToUniversalTime()); // ex) Mon, 23 Apr 2013 12:45:19 GMT // date
 		query[4] = "/targets/" + targetID; // url
 
 		string stringToSign = string.Join("\n", query);
@@ -232,7 +232,7 @@ public class VWS : MonoBehaviour
 		query[0] = "PUT"; // method
 		query[1] = CalculateMD5Hash(content).ToLower(); // content
 		query[2] = "application/json"; // content type
-		query[3] = DateTime.UtcNow.GetDateTimeFormats()[15]; // date
+		query[3] = string.Format("{0:r}", DateTime.Now.ToUniversalTime()); // ex) Mon, 23 Apr 2013 12:45:19 GMT // date
 		query[4] = "/targets/" + targetID; // url
 
 		string stringToSign = string.Join("\n", query);
@@ -253,7 +253,7 @@ public class VWS : MonoBehaviour
 		query[0] = "PUT"; // method
 		query[1] = CalculateMD5Hash(content).ToLower(); // content
 		query[2] = "application/json"; // content type
-		query[3] = DateTime.UtcNow.GetDateTimeFormats()[15]; // date
+		query[3] = string.Format("{0:r}", DateTime.Now.ToUniversalTime()); // ex) Mon, 23 Apr 2013 12:45:19 GMT // date
 		query[4] = "/targets/" + targetID; // url
 
 		string stringToSign = string.Join("\n", query);
@@ -273,7 +273,7 @@ public class VWS : MonoBehaviour
 		query[0] = "PUT"; // method
 		query[1] = CalculateMD5Hash(content).ToLower(); // content
 		query[2] = "application/json"; // content type
-		query[3] = DateTime.UtcNow.GetDateTimeFormats()[15]; // date
+		query[3] = string.Format("{0:r}", DateTime.Now.ToUniversalTime()); // ex) Mon, 23 Apr 2013 12:45:19 GMT // date
 		query[4] = "/targets/" + targetID; // url
 
 		string stringToSign = string.Join("\n", query);
@@ -294,7 +294,7 @@ public class VWS : MonoBehaviour
 		query[0] = "PUT"; // method
 		query[1] = CalculateMD5Hash(content).ToLower(); // content
 		query[2] = "application/json"; // content type
-		query[3] = DateTime.UtcNow.GetDateTimeFormats()[15]; // date
+		query[3] = string.Format("{0:r}", DateTime.Now.ToUniversalTime()); // ex) Mon, 23 Apr 2013 12:45:19 GMT // date
 		query[4] = "/targets/" + targetID; // url
 
 		string stringToSign = string.Join("\n", query);
@@ -356,7 +356,7 @@ public class VWS : MonoBehaviour
 		query[0] = "DELETE"; // method
 		query[1] = CalculateMD5Hash(content).ToLower(); // content
 		query[2] = "application/json"; // content type
-		query[3] = DateTime.UtcNow.GetDateTimeFormats()[15]; // date
+		query[3] = string.Format("{0:r}", DateTime.Now.ToUniversalTime()); // ex) Mon, 23 Apr 2013 12:45:19 GMT // date
 		query[4] = "/targets/" + targetID; // url
 
 		string stringToSign = string.Join("\n", query);
@@ -416,7 +416,7 @@ public class VWS : MonoBehaviour
 		query[0] = "GET"; // method
 		query[1] = CalculateMD5Hash(content).ToLower(); // content
 		query[2] = "application/json"; // content type
-		query[3] = DateTime.UtcNow.GetDateTimeFormats()[15]; // date
+		query[3] = string.Format("{0:r}", DateTime.Now.ToUniversalTime()); // ex) Mon, 23 Apr 2013 12:45:19 GMT // date
 		query[4] = "/targets/" + targetID; // url
 
 		string stringToSign = string.Join("\n", query);
@@ -435,7 +435,7 @@ public class VWS : MonoBehaviour
 		query[0] = "GET"; // method
 		query[1] = CalculateMD5Hash(content).ToLower(); // content
 		query[2] = "application/json"; // content type
-		query[3] = DateTime.UtcNow.GetDateTimeFormats()[15]; // date
+		query[3] = string.Format("{0:r}", DateTime.Now.ToUniversalTime()); // ex) Mon, 23 Apr 2013 12:45:19 GMT // date
 		query[4] = "/duplicates/" + targetID; // url
 
 		string stringToSign = string.Join("\n", query);
@@ -454,7 +454,7 @@ public class VWS : MonoBehaviour
 		query[0] = "GET"; // method
 		query[1] = CalculateMD5Hash(content).ToLower(); // content
 		query[2] = "application/json"; // content type
-		query[3] = DateTime.UtcNow.GetDateTimeFormats()[15]; // date
+		query[3] = string.Format("{0:r}", DateTime.Now.ToUniversalTime()); // ex) Mon, 23 Apr 2013 12:45:19 GMT // date
 		query[4] = "/targets"; // url
 
 		string stringToSign = string.Join("\n", query);
@@ -514,7 +514,7 @@ public class VWS : MonoBehaviour
 		query[0] = "GET"; // method
 		query[1] = CalculateMD5Hash(content).ToLower(); // content
 		query[2] = "application/json"; // content type
-		query[3] = DateTime.UtcNow.GetDateTimeFormats()[15]; // date
+		query[3] = string.Format("{0:r}", DateTime.Now.ToUniversalTime()); // ex) Mon, 23 Apr 2013 12:45:19 GMT // date
 		query[4] = "/summary/" + targetID; // url
 
 		string stringToSign = string.Join("\n", query);
@@ -574,7 +574,7 @@ public class VWS : MonoBehaviour
 		query[0] = "GET"; // method
 		query[1] = CalculateMD5Hash(content).ToLower(); // content
 		query[2] = "application/json"; // content type
-		query[3] = DateTime.UtcNow.GetDateTimeFormats()[15]; // date
+		query[3] = string.Format("{0:r}", DateTime.Now.ToUniversalTime()); // ex) Mon, 23 Apr 2013 12:45:19 GMT // date
 		query[4] = "/summary"; // url
 
 		string stringToSign = string.Join("\n", query);

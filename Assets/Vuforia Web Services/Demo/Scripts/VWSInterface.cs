@@ -27,34 +27,36 @@ public class VWSInterface : MonoBehaviour
 
 	void Start () 
 	{
-		LoadDatabaseCredentials ();
-	}
+        //LoadDatabaseCredentials ();
+        ConnectToDatabase();
 
-	void LoadDatabaseCredentials ()
-	{
-		if (string.IsNullOrEmpty(VWS.Instance.accessKey) && PlayerPrefs.HasKey("accessKey"))
-		{
-			VWS.Instance.accessKey = PlayerPrefs.GetString("accessKey");
-			DatabaseAccessField.text = VWS.Instance.accessKey;
-		}
+    }
 
-		if (string.IsNullOrEmpty(VWS.Instance.secretKey) && PlayerPrefs.HasKey("secretKey"))
-		{
-			VWS.Instance.secretKey = PlayerPrefs.GetString("secretKey");
-			DatabaseSecretField.text = VWS.Instance.secretKey;
-		}
+	//void LoadDatabaseCredentials ()
+	//{
+	//	if (string.IsNullOrEmpty(VWS.Instance.accessKey) && PlayerPrefs.HasKey("accessKey"))
+	//	{
+ //           VWS.Instance.accessKey = PlayerPrefs.GetString("accessKey");
+ //           DatabaseAccessField.text = VWS.Instance.accessKey;
+ //       }
 
-		ConnectToDatabase ();
-	}
+	//	if (string.IsNullOrEmpty(VWS.Instance.secretKey) && PlayerPrefs.HasKey("secretKey"))
+	//	{
+ //           VWS.Instance.secretKey = PlayerPrefs.GetString("secretKey");
+ //           DatabaseSecretField.text = VWS.Instance.secretKey;
+ //       }
+
+	//	ConnectToDatabase ();
+	//}
 
 	public void ConnectToDatabase ()
 	{
-		VWS.Instance.accessKey = DatabaseAccessField.text;
-		VWS.Instance.secretKey = DatabaseSecretField.text;
+		//VWS.Instance.accessKey = DatabaseAccessField.text;
+		//VWS.Instance.secretKey = DatabaseSecretField.text;
 
-		PlayerPrefs.SetString("accessKey", DatabaseAccessField.text);
-		PlayerPrefs.SetString("secretKey", DatabaseSecretField.text);
-		PlayerPrefs.Save();
+		//PlayerPrefs.SetString("accessKey", DatabaseAccessField.text);
+		//PlayerPrefs.SetString("secretKey", DatabaseSecretField.text);
+		//PlayerPrefs.Save();
 
 		LogMessage("Requesting database summary...");
 		VWS.Instance.RetrieveDatabaseSummary( response =>
