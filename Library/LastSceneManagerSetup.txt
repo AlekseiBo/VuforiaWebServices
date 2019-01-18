@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/Vuforia Web Services/Demo/VWSDemo.unity
+  isLoaded: 1
+  isActive: 1

@@ -27,34 +27,36 @@ public class VWSInterface : MonoBehaviour
 
 	void Start () 
 	{
-		LoadDatabaseCredentials ();
-	}
+        //LoadDatabaseCredentials ();
+        ConnectToDatabase();
 
-	void LoadDatabaseCredentials ()
-	{
-		if (string.IsNullOrEmpty(VWS.Instance.accessKey) && PlayerPrefs.HasKey("accessKey"))
-		{
-			VWS.Instance.accessKey = PlayerPrefs.GetString("accessKey");
-			DatabaseAccessField.text = VWS.Instance.accessKey;
-		}
+    }
 
-		if (string.IsNullOrEmpty(VWS.Instance.secretKey) && PlayerPrefs.HasKey("secretKey"))
-		{
-			VWS.Instance.secretKey = PlayerPrefs.GetString("secretKey");
-			DatabaseSecretField.text = VWS.Instance.secretKey;
-		}
+	//void LoadDatabaseCredentials ()
+	//{
+	//	if (string.IsNullOrEmpty(VWS.Instance.accessKey) && PlayerPrefs.HasKey("accessKey"))
+	//	{
+ //           VWS.Instance.accessKey = PlayerPrefs.GetString("accessKey");
+ //           DatabaseAccessField.text = VWS.Instance.accessKey;
+ //       }
 
-		ConnectToDatabase ();
-	}
+	//	if (string.IsNullOrEmpty(VWS.Instance.secretKey) && PlayerPrefs.HasKey("secretKey"))
+	//	{
+ //           VWS.Instance.secretKey = PlayerPrefs.GetString("secretKey");
+ //           DatabaseSecretField.text = VWS.Instance.secretKey;
+ //       }
+
+	//	ConnectToDatabase ();
+	//}
 
 	public void ConnectToDatabase ()
 	{
-		VWS.Instance.accessKey = DatabaseAccessField.text;
-		VWS.Instance.secretKey = DatabaseSecretField.text;
+		//VWS.Instance.accessKey = DatabaseAccessField.text;
+		//VWS.Instance.secretKey = DatabaseSecretField.text;
 
-		PlayerPrefs.SetString("accessKey", DatabaseAccessField.text);
-		PlayerPrefs.SetString("secretKey", DatabaseSecretField.text);
-		PlayerPrefs.Save();
+		//PlayerPrefs.SetString("accessKey", DatabaseAccessField.text);
+		//PlayerPrefs.SetString("secretKey", DatabaseSecretField.text);
+		//PlayerPrefs.Save();
 
 		LogMessage("Requesting database summary...");
 		VWS.Instance.RetrieveDatabaseSummary( response =>
@@ -79,8 +81,41 @@ public class VWSInterface : MonoBehaviour
 			}
 		);
 	}
-		
-	public void LoadTargetList ()
+
+    public void ConnectToDatabaseRuntime()
+    {
+        VWS.Instance.accessKey = DatabaseAccessField.text;
+        VWS.Instance.secretKey = DatabaseSecretField.text;
+
+        //PlayerPrefs.SetString("accessKey", DatabaseAccessField.text);
+        //PlayerPrefs.SetString("secretKey", DatabaseSecretField.text);
+        //PlayerPrefs.Save();
+
+        LogMessage("Requesting database summary...");
+        VWS.Instance.RetrieveDatabaseSummary(response =>
+        {
+            if (response.result_code == "Success")
+            {
+                DatabaseTitle.text = response.name;
+
+                string log = "Name: " + response.name + "\n";
+                log += "Active images: " + response.active_images + "\n";
+                log += "Failed images: " + response.failed_images + "\n";
+                log += "Inactive images: " + response.inactive_images;
+
+                LogMessage(log);
+
+                LoadTargetList();
+            }
+            else
+            {
+                LogMessage(response.result_code);
+            }
+        }
+        );
+    }
+
+    public void LoadTargetList ()
 	{
 		LogMessage("Requesting target list...");
 		VWS.Instance.RetrieveTargetList( response =>
